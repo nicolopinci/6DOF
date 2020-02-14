@@ -1,16 +1,20 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
+#LyX file created by tex2lyx 2.2
 \lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
-\origin unavailable
+\origin /home/nicolo/Documents/DSCLS/6DOF/6DOF/
 \textclass article
-\use_default_options true
+\begin_preamble
+\usepackage{babel}
+
+\end_preamble
+\use_default_options false
 \maintain_unincluded_children false
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
+\inputencoding iso8859-15
+\fontencoding T1
 \font_roman "default" "default"
 \font_sans "default" "default"
 \font_typewriter "default" "default"
@@ -27,19 +31,20 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
 \use_package amsmath 1
-\use_package amssymb 1
-\use_package cancel 1
+\use_package amssymb 0
+\use_package cancel 0
 \use_package esint 1
-\use_package mathdots 1
-\use_package mathtools 1
-\use_package mhchem 1
-\use_package stackrel 1
-\use_package stmaryrd 1
-\use_package undertilde 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
 \cite_engine basic
 \cite_engine_type default
 \biblio_style plain
@@ -48,7 +53,7 @@
 \paperorientation portrait
 \suppress_date false
 \justification true
-\use_refstyle 1
+\use_refstyle 0
 \index Index
 \shortcut idx
 \color #008000
@@ -79,8 +84,7 @@ Equations, transformations and matrices
 \end_layout
 
 \begin_layout Standard
-In order to define the system, we have to consider the math behind it.
- First of all, we have to define the transformations through matrices:
+In order to define the system, we have to consider the math behind it. First of all, we have to define the transformations through matrices: 
 \end_layout
 
 \begin_layout Itemize
@@ -88,7 +92,7 @@ Pitch motion matrix
 \begin_inset Newline newline
 \end_inset
 
-
+ 
 \begin_inset Formula $\left[\begin{array}{ccc}
 1 & 0 & 0\\
 0 & cos(\nu_{p}) & -sin(\nu_{p})\\
@@ -100,12 +104,11 @@ Pitch motion matrix
 \begin_inset Newline newline
 \end_inset
 
-where 
+ where 
 \begin_inset Formula $\nu_{p}$
 \end_inset
 
- represents the rotation angle around the x axis, therefore it is the clockwise
- rotation in the yz plane
+ represents the rotation angle around the x axis, therefore it is the clockwise rotation in the yz plane 
 \end_layout
 
 \begin_layout Itemize
@@ -113,7 +116,7 @@ Roll motion matrix
 \begin_inset Newline newline
 \end_inset
 
-
+ 
 \begin_inset Formula $\left[\begin{array}{ccc}
 cos(\nu_{r}) & 0 & -sin(\nu_{r})\\
 0 & 1 & 0\\
@@ -125,17 +128,15 @@ sin(\nu_{r}) & 0 & cos(\nu_{r})
 \begin_inset Newline newline
 \end_inset
 
-where 
+ where 
 \begin_inset Formula $\nu_{r}$
 \end_inset
 
- represents the rotation angle around the y axis, therefore it is the clockwise
- rotation in the xz plane
+ represents the rotation angle around the y axis, therefore it is the clockwise rotation in the xz plane 
 \end_layout
 
 \begin_layout Itemize
-Heave motion consists in adding a constant to the z value after having performed
- the pitch and roll motion matrices
+Heave motion consists in adding a constant to the z value after having performed the pitch and roll motion matrices 
 \end_layout
 
 \begin_layout Standard
@@ -159,15 +160,15 @@ and
 \begin_inset Formula $[P_{1},P_{2},P_{3}]$
 \end_inset
 
-.
- In this problem we have:
+. In this problem we have: 
 \end_layout
 
 \begin_layout Itemize
+
 \begin_inset Formula $P_{1}($
 \end_inset
 
-
+ 
 \end_layout
 
 \end_body

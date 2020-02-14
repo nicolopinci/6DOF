@@ -1,0 +1,43 @@
+%% LyX 2.2.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{babel}
+\begin{document}
+
+\title{Report}
+\maketitle
+
+\section*{Equations, transformations and matrices}
+
+In order to define the system, we have to consider the math behind
+it. First of all, we have to define the transformations through matrices:
+\begin{itemize}
+\item Pitch motion matrix\\
+$\left[\begin{array}{ccc}
+1 & 0 & 0\\
+0 & cos(\nu_{p}) & -sin(\nu_{p})\\
+0 & sin(\nu_{p}) & cos(\nu_{p})
+\end{array}\right]$\\
+where $\nu_{p}$ represents the rotation angle around the x axis,
+therefore it is the clockwise rotation in the yz plane
+\item Roll motion matrix\\
+$\left[\begin{array}{ccc}
+cos(\nu_{r}) & 0 & -sin(\nu_{r})\\
+0 & 1 & 0\\
+sin(\nu_{r}) & 0 & cos(\nu_{r})
+\end{array}\right]$\\
+where $\nu_{r}$ represents the rotation angle around the y axis,
+therefore it is the clockwise rotation in the xz plane
+\item Heave motion consists in adding a constant to the z value after having
+performed the pitch and roll motion matrices
+\end{itemize}
+Given three connection points $P_{1}$, \textbf{$P_{2}$ }and $P_{3}$,
+they can be expressed as $[P_{1},P_{2},P_{3}]$. In this problem we
+have:
+\begin{itemize}
+\item $P_{1}($
+\end{itemize}
+
+\end{document}
