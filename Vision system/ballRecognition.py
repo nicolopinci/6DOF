@@ -1,9 +1,5 @@
-#!/Users/vebjorn/anaconda3/envs/opencv-env python
-# -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is a temporary script file.
+Computer vision system for the detection of the ball position and velocity.
 """
 
 import numpy as np
@@ -11,19 +7,35 @@ import cv2
 from collections import deque
 import imutils
 from datetime import datetime
+import math
+
+def getCurrentRoll():
+    return 0
+
+def getCurrentPitch():
+    return 0
+
 
 cap = cv2.VideoCapture(0)
 
+halfX = cap.get(cv2.CAP_PROP_FRAME_WIDTH)/2
+halfY = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)/2
+        
 bufflen  = 20;
 pts = deque(maxlen=bufflen)
 
-currentX = 0
-currentY = 0
+realX = 0
+realY = 0
 previousX = 0
 previousY = 0
 
 deltaX = 0
 deltaY = 0
+
+deltaVx = 0
+deltaVy = 0
+
+windowName = '6DOF motion platform'
 
 initialTime = datetime.now()
 
@@ -87,26 +99,29 @@ while(True):
         cv2.line(frame, pts[i - 1], pts[i], (0, 0, 255), thickness)
       
     # Display the resulting frame
-    cv2.namedWindow('image',cv2.WINDOW_NORMAL)
-    cv2.resizeWindow('image', 711,600)
-    cv2.imshow('image',frame)
+    cv2.namedWindow(windowName, cv2.WINDOW_NORMAL)
+    cv2.resizeWindow(windowName, 711,600)
+    cv2.imshow(windowName, frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
     if center is not None:
-        previousX = currentX
-        previousY = currentY
+        previousX = realX
+        previousY = realY
         
-        currentX = center[0]
-        currentY = center[1]
+        currentRoll = getCurrentRoll()
+        currentPitch = getCurrentPitch()
         
-        deltaX = currentX - previousX
-        deltaY = currentY - previousY
+        realX = (center[0] - halfX)/math.cos(currentRoll)
+        realY = (center[1] - halfY)/math.cos(currentPitch)
+        
+        deltaX = realX - previousX
+        deltaY = realY - previousY
         
         deltaT = (datetime.now() - initialTime).total_seconds()
-        
-        deltaVx = deltaX/deltaT
-        deltaVy = deltaY/deltaT
+    
+        Vx = deltaX/deltaT
+        Vy = deltaY/deltaT
             
         initialTime = datetime.now()
     
